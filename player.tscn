@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://xcjrjq5cbn7y"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_2v3wm"]
+[ext_resource type="Texture2D" uid="uid://buvxdbhao4n7y" path="res://icon.svg" id="2_td6xq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h8avw"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hn37q"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_2v3wm")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-4, -5)
+texture = ExtResource("2_td6xq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_h8avw")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(400, 0)
+collision_mask = 2
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_hn37q")
