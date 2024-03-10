@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="MultiplayerFPSTutorial"
+config/name="Woodland Friends"
+config/description="A game where you make friends with woodland creatures. "
 run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
@@ -51,3 +52,7 @@ shoot={
 [physics]
 
 2d/default_gravity_vector=Vector2(0, 0)
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

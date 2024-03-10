@@ -1,19 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=5 format=3 uid="uid://c8oqxmm2w2wvv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_w2qqb"]
-sky_material = SubResource("ProceduralSkyMaterial_u5pdl")
-
-[sub_resource type="Environment" id="Environment_6knbf"]
-background_mode = 2
-sky = SubResource("Sky_w2qqb")
-tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j2w0w"]
 
@@ -25,9 +12,6 @@ bg_color = Color(0.00392157, 1, 0, 1)
 
 [node name="World" type="Node"]
 script = ExtResource("1_6tkge")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6knbf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

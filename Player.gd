@@ -15,14 +15,15 @@ func _ready():
 	if not is_multiplayer_authority(): return
 
 func _unhandled_input(event):
-	if not is_multiplayer_authority(): return
+	if event:
+		if not is_multiplayer_authority(): return
 		
 	if Input.is_action_just_pressed("shoot"):
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not is_multiplayer_authority(): return
 	look_at(get_global_mouse_position())
 	var input_dir = Input.get_vector("left", "right", "up", "down")
