@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=11 format=3 uid="uid://c8oqxmm2w2wvv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="Texture2D" uid="uid://buvxdbhao4n7y" path="res://icon.svg" id="2_b7qpk"]
+[ext_resource type="Texture2D" uid="uid://bg7mtn0b7vxe2" path="res://gameworld.png" id="3_8iht3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,7 +26,7 @@ bg_color = Color(1, 0.117647, 0, 1)
 bg_color = Color(0.00392157, 1, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu1y7"]
-size = Vector2(130.349, 127.176)
+size = Vector2(8378.69, 22.6143)
 
 [node name="World" type="Node"]
 script = ExtResource("1_6tkge")
@@ -129,8 +130,13 @@ texture = ExtResource("2_b7qpk")
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2(-2.34863, 0.412018)
+position = Vector2(5.2843, 54.7062)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cu1y7")
+
+[node name="Gameworld" type="Sprite2D" parent="."]
+position = Vector2(578, 323)
+texture = ExtResource("3_8iht3")
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
