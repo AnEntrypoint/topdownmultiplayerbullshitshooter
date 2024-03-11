@@ -20,7 +20,8 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("shoot"):
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
-			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+			if !(hit_player is StaticBody2D):
+				hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
