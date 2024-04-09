@@ -18,7 +18,8 @@ func _ready():
 	camera.make_current()
 	
 func _unhandled_input(event):
-	if not is_multiplayer_authority(): return
+	if not is_multiplayer_authority():
+		raycast.visible = false
 		
 	if Input.is_action_just_pressed("shoot"):
 		if raycast.is_colliding():
