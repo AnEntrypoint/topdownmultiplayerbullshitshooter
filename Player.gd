@@ -8,7 +8,7 @@ signal health_changed(health_value)
 var health = 3
 
 const SPEED = 200.0
-var gravity = 900.0
+var gravity = 0.0
 var JUMP_VELOCITY = -600
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -32,8 +32,8 @@ func _physics_process(delta):
 
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	velocity.x = input_dir.x * SPEED
-	#velocity.y = input_dir.y * SPEED
-	velocity.y += gravity * delta
+	velocity.y = input_dir.y * SPEED
+	#velocity.y += input_dir * delta
 	move_and_slide()
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
